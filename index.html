@@ -86,7 +86,7 @@
         .custom-note { font-size: 0.75rem; color: var(--accent); font-style: italic; margin-top: 15px; }
 
        /* --- Gallery Section --- */
-/* --- Gallery Section (Full Update) --- */
+/* --- Gallery Section (Original Size Fit) --- */
 .gallery { 
     padding: 80px 8%; 
     background: rgba(255, 255, 255, 0.02); 
@@ -94,34 +94,37 @@
 
 .gallery-grid { 
     display: grid; 
-    /* screen အကျယ်ပေါ်မူတည်ပြီး အကွက်တွေကို အချိုးကျ စီပေးတာပါ */
+    /* အကွက်တွေကို ညီနေအောင် စီထားပေးပါတယ် */
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); 
-    gap: 20px; 
+    gap: 25px; 
     margin-top: 40px;
 }
 
 .gallery-item { 
-    /* အမြင့်ကို အကျယ်နဲ့အမျှ Square (၁:၁) ဖြစ်အောင် သတ်မှတ်တာပါ */
-    aspect-ratio: 1 / 1; 
-    border-radius: 20px; 
+    height: 320px; /* အကွက်ရဲ့ အမြင့်ကို သတ်မှတ်ထားတာပါ */
+    border-radius: 15px; 
     overflow: hidden; 
     border: 1px solid var(--border); 
     position: relative; 
     cursor: pointer;
-    background: var(--glass); /* ပုံမပေါ်ခင်မှာ အနောက်က ကွက်တိဖြစ်နေအောင် */
+    background: #111; /* ပုံမူရင်း size သေးရင် ဘေးမှာ အမည်းရောင်ပဲ ပေါ်နေဖို့ */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .gallery-item img { 
-    width: 100%; 
-    height: 100%; 
-    /* ပုံကို မပြဲစေဘဲ အကွက်ထဲ ကွက်တိဝင်အောင် ဖြတ်ညှိပေးတာပါ */
-    object-fit: cover; 
-    display: block;
-    transition: 0.6s ease;
+    /* မူရင်း Size အတိုင်း မပြဲအောင် ထိန်းပေးတဲ့ အပိုင်း */
+    max-width: 100%; 
+    max-height: 100%; 
+    width: auto; 
+    height: auto; 
+    object-fit: contain; /* ဒါက ပုံကို မဖြတ်ဘဲ မူရင်းအတိုင်း ကွက်တိဝင်စေပါတယ် */
+    transition: 0.5s ease;
 }
 
 .gallery-item:hover img { 
-    transform: scale(1.1); 
+    transform: scale(1.05); 
 }
 
 .gallery-overlay { 
@@ -129,28 +132,32 @@
     bottom: 0; 
     width: 100%; 
     padding: 15px; 
-    background: linear-gradient(transparent, rgba(0,0,0,0.8)); 
-    text-align: center; 
+    background: rgba(0, 0, 0, 0.7); 
+    text-align: center;
+    opacity: 0; /* Hover လုပ်မှ စာပေါ်လာစေချင်ရင် သုံးနိုင်ပါတယ် */
+    transition: 0.3s;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
 }
 
 .gallery-overlay span { 
     color: var(--accent); 
     font-weight: 700; 
     text-transform: uppercase; 
-    letter-spacing: 1px; 
     font-size: 0.8rem; 
 }
 
-/* Mobile အတွက် အချိုးကျ ပြန်ညှိခြင်း */
+/* Mobile Setup */
 @media (max-width: 768px) {
-    .gallery { padding: 60px 5%; }
     .gallery-grid {
-        /* ဖုန်းမှာ တစ်တန်းကို ၂ ခုစီ ကွက်တိပြဖို့ ညှိထားပါတယ် */
-        grid-template-columns: repeat(2, 1fr); 
-        gap: 12px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
     }
-    .gallery-overlay { padding: 10px; }
-    .gallery-overlay span { font-size: 0.7rem; }
+    .gallery-item {
+        height: 200px; /* ဖုန်းမှာ အမြင့်ကို နည်းနည်းလျှော့လိုက်ပါ */
+    }
 }
         /* --- About Section --- */
         .about-creative { padding: 100px 8%; background: #000; }
