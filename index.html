@@ -134,18 +134,66 @@
         .burger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
         .burger div { width: 25px; height: 3px; background: var(--accent); transition: 0.3s; }
 
-        @media (max-width: 768px) {
-            .burger { display: flex; }
-            .menu { position: fixed; right: 0; top: 70px; height: 100vh; width: 75%; background: rgba(5,5,5,0.98); backdrop-filter: blur(20px); display: flex; flex-direction: column; align-items: center; transform: translateX(100%); transition: 0.5s; padding-top: 50px; z-index: 999; }
-            .nav-active { transform: translateX(0); }
-            .menu a { margin: 15px 0; font-size: 1.1rem; }
-            .about-wrapper { flex-direction: column; }
-            .grid, .gallery-grid { grid-template-columns: 1fr; }
-            .print-sub-grid, .social-tiles { grid-template-columns: 1fr; }
-            .toggle .line1 { transform: rotate(-45deg) translate(-5px, 6px); }
-            .toggle .line2 { opacity: 0; }
-            .toggle .line3 { transform: rotate(45deg) translate(-5px, -6px); }
-        }
+        /* Media Queries အပိုင်းကို ဒီလိုလေး အစားထိုးကြည့်ပါ */
+@media (max-width: 768px) {
+    .nav {
+        padding: 15px 5%;
+    }
+    
+    .burger { display: flex; }
+    
+    .menu { 
+        position: fixed; 
+        right: 0; 
+        top: 70px; 
+        height: 100vh; 
+        width: 80%; /* နည်းနည်း ပိုကျယ်လိုက်ရင် ပိုကြည့်ကောင်းပါတယ် */
+        background: rgba(5,5,5,0.98); 
+        backdrop-filter: blur(20px); 
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+        transform: translateX(100%); 
+        transition: 0.5s ease-in-out; 
+        padding-top: 50px; 
+        z-index: 999; 
+    }
+
+    .nav-active { transform: translateX(0); }
+    .menu a { margin: 15px 0; font-size: 1.2rem; }
+
+    /* Layout Sections */
+    .services, .gallery, .about-creative, .contact {
+        padding: 60px 5%; /* ဘေးကွာဟချက် လျှော့လိုက်တာပါ */
+    }
+
+    .hero-content h2 {
+        font-size: 2.8rem; /* Mobile မှာ အရမ်းကြီးမနေအောင် */
+    }
+
+    .about-left, .about-right {
+        min-width: 100%; /* ဖုန်းမှာ တစ်ခုစီ အပြည့်ပြဖို့ */
+    }
+
+    .main-title {
+        font-size: 2.5rem;
+    }
+
+    .info-pill {
+        padding: 15px 20px;
+        flex-direction: column; /* ဖုန်းမှာ Icon နဲ့ စာကို အပေါ်အောက် ထားရင် ပိုဆံ့ပါတယ် */
+        text-align: center;
+        border-radius: 20px;
+    }
+
+    .social-tiles {
+        grid-template-columns: 1fr; /* တစ်တန်းကို တစ်ခုစီပြမယ် */
+    }
+    
+    .print-sub-grid {
+        grid-template-columns: 1fr;
+    }
+}
     </style>
 </head>
 <body>
