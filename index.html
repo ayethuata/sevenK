@@ -173,4 +173,368 @@
         .info-pill:hover { border-color: var(--accent); transform: translateY(-3px); background: rgba(0,255,255,0.02); }
         .info-pill i { font-size: 1.4rem; color: var(--accent); width: 25px; text-align: center; }
         .info-pill-text label { display: block; color: #666; font-size: 0.75rem; text-transform: uppercase; font-weight: 800; margin-bottom: 4px; }
-        .info-pill-text span {
+        .info-pill-text span { font-size: 1rem; color: #fff; font-weight: 500; }
+
+        /* Embedded Map & Form Container */
+        .contact-map-block { flex: 1; min-width: 320px; border-radius: 25px; overflow: hidden; border: 1px solid var(--border); height: 380px; }
+        .contact-map-block iframe { width: 100%; height: 100%; border: 0; filter: grayscale(1) invert(1) contrast(1.2); }
+
+        /* --- Footer Section with Social Icons --- */
+        footer { 
+            background: #000000; padding: 60px 8% 30px; 
+            border-top: 1px solid var(--border); text-align: center; 
+        }
+        .footer-content { 
+            display: flex; flex-direction: column; align-items: center; gap: 25px; max-width: 1200px; margin: 0 auto; 
+        }
+        .footer-socials { display: flex; gap: 15px; }
+        .footer-socials a { 
+            width: 45px; height: 45px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); 
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; 
+            color: #fff; text-decoration: none; font-size: 1.2rem; transition: 0.3s; 
+        }
+        .footer-socials a.fb:hover { background: #1877F2; border-color: #1877F2; transform: translateY(-5px); box-shadow: 0 5px 15px rgba(24, 119, 242, 0.4); }
+        .footer-socials a.viber:hover { background: #7360f2; border-color: #7360f2; transform: translateY(-5px); box-shadow: 0 5px 15px rgba(115, 96, 242, 0.4); }
+        .footer-socials a.tele:hover { background: #0088cc; border-color: #0088cc; transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0, 136, 204, 0.4); }
+        
+        .footer-links { display: flex; gap: 25px; margin-top: 10px; }
+        .footer-links a { color: #aaa; text-decoration: none; font-size: 0.85rem; transition: 0.3s; }
+        .footer-links a:hover { color: var(--accent); }
+        
+        .copyright { color: #555; font-size: 0.8rem; margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 25px; width: 100%; }
+
+        /* Burger Menu Elements */
+        .burger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+        .burger div { width: 25px; height: 3px; background: var(--accent); transition: 0.3s; }
+
+        /* Animation for Burger Menu */
+        .toggle .line1 { transform: rotate(-45deg) translate(-5px, 6px); }
+        .toggle .line2 { opacity: 0; }
+        .toggle .line3 { transform: rotate(45deg) translate(-5px, -6px); }
+
+        /* --- Media Queries --- */
+        @media (max-width: 768px) {
+            .nav { padding: 15px 5%; }
+            .burger { display: flex; }
+            .menu { 
+                position: fixed; right: 0; top: 70px; height: 100vh; width: 75%; 
+                background: rgba(5,5,5,0.98); backdrop-filter: blur(20px); 
+                display: flex; flex-direction: column; align-items: center; 
+                transform: translateX(100%); transition: 0.5s ease-in-out; 
+                padding-top: 50px; z-index: 999; 
+            }
+            .nav-active { transform: translateX(0); }
+            .menu a { margin: 15px 0; font-size: 1.2rem; }
+
+            .services, .gallery, .about-creative, .contact { padding: 60px 5%; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .gallery-item { height: 200px; }
+            .hero-content h2 { font-size: 2.5rem; }
+            .about-left, .about-right { min-width: 100%; }
+            .main-title { font-size: 2.2rem; }
+
+            .contact-container { flex-direction: column; }
+            .info-pill { padding: 18px 20px; }
+            .contact-map-block { height: 300px; }
+            .footer-links { flex-wrap: wrap; justify-content: center; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="nav">
+        <div class="logo"><img src="img/logo.jpg" alt="7K Logo"><span>7K</span></div>
+        <nav class="menu">
+            <a href="#">HOME</a>
+            <a href="#services">SERVICES</a>
+            <a href="#gallery">PORTFOLIO</a>
+            <a href="#about">ABOUT</a> 
+            <a href="#contact">CONTACT</a>
+        </nav>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>BEYOND THE PRINT</h2>
+            <p class="eng-motto">Best Service Best Quality For Your Business</p>
+            <p class="mm-motto">လုပ်ငန်းရှင်တိုင်းအဆင်ပြေဖို့ အဖြေ 7K</p>
+            <a href="#services" class="btn-main">See Our Best Services</a>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-img"><img src="img/design.jpg" alt="Design"></div>
+                <div class="card-info">
+                    <h3>Design Service</h3>
+                    <ul>
+                        <li>Logo Design</li>
+                        <li>Social Media Design</li>
+                        <li>Printing Design</li>
+                        <li>Packaging Design</li>
+                        <li>Poster Design</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img"><img src="img/printing.jpg" alt="Print"></div>
+                <div class="card-info">
+                    <h3>Print Service</h3>
+                    <div class="print-sub-grid">
+                        <div class="print-col">
+                            <h4>Digital</h4>
+                            <ul>
+                                <li>Vinyl (inkjet + UV)</li>
+                                <li>Die cut Sticker</li>
+                                <li>Clear Sticker</li>
+                                <li>Hologram Sticker</li>
+                                <li>PP Board + Sticker</li>
+                                <li>ID Card (Inkjet + UV)</li>
+                            </ul>
+                        </div>
+                        <div class="print-col">
+                            <h4>Offset</h4>
+                            <ul>
+                                <li>Business Card</li>
+                                <li>Letterhead</li>
+                                <li>Pamphlet</li>
+                                <li>Invitation Card</li>
+                                <li>Voucher / Box</li>
+                                <li>Clinic Book</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="custom-note">Customize လုပ်ချင်တဲ့ Paper များလဲ ရိုက်နှိပ်နိုင်ပါသည်။</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img"><img src="img/screen.jpg" alt="Screen"></div>
+                <div class="card-info">
+                    <h3>Screen Printing</h3>
+                    <ul>
+                        <li>T-Shirt (Screen + DTF Sticker)</li>
+                        <li>Recycle Bag အမျိုးမျိုး</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img"><img src="img/sublimation.jpg" alt="Sublimation"></div>
+                <div class="card-info">
+                    <h3>Sublimation</h3>
+                    <ul>
+                        <li>Lanyard & Wristband</li>
+                        <li>Totebag / Mug အမျိုးမျိုး</li>
+                        <li>Sport Bottle / Umbrella</li>
+                        <li>ကြွေပြား Sublimation</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img"><img src="img/ads.jpg" alt="Ads"></div>
+                <div class="card-info">
+                    <h3>Advertising Material</h3>
+                    <ul>
+                        <li>X stand / Window Stand</li>
+                        <li>Speel Wheel</li>
+                        <li>Roll up Banner</li>
+                        <li>Customize Box</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+        <h2 class="section-title">Our Creations</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="img/Logo1.png" alt="7K Portfolio">
+                <div class="gallery-overlay"><span>Logo</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="img/Cupon.png" alt="7K Portfolio">
+                <div class="gallery-overlay"><span>Cuopon</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="img/ID.png" alt="7K Portfolio">
+                <div class="gallery-overlay"><span>ID Card & Lanyard</span></div>
+            </div>
+             <div class="gallery-item">
+                <img src="img/Businesscard.jpg" alt="7K Portfolio">
+                <div class="gallery-overlay"><span>Business Card</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="img/ProfileBook.png" alt="7K Portfolio">
+                <div class="gallery-overlay"><span>Profile Book</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="img/Pamphlte.png" alt="7K Portfolio">
+                <div class="gallery-overlay"><span>Pamphlet</span></div>
+            </div>
+               <div class="gallery-item">
+                <img src="img/Vinyl&XStand.png" alt="7K Portfolio">
+                <div class="gallery-overlay"><span>Vinyl & X Stand</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="img/Newspaper.png" alt="7K Portfolio">
+                <div class="gallery-overlay"><span>Newspaper</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="img/Letterhead.png" alt="7K Portfolio">
+                <div class="gallery-overlay"><span>Letterhead</span></div>
+            </div>
+              <div class="gallery-item">
+                <img src="img/NoteBook.jpg" alt="7K Portfolio">
+                <div class="gallery-overlay"><span>Note Book</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="img/Menu_2.jpg" alt="7K Portfolio">
+                <div class="gallery-overlay"><span>Menu</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="img/sportbottle.png" alt="7K Portfolio">
+                <div class="gallery-overlay"><span>sportbottle</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="img/CarbonlessVoucher.png" alt="7K Portfolio">
+                <div class="gallery-overlay"><span>Carbonless Voucher</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="img/advertising.jpg" alt="7K Portfolio">
+                <div class="gallery-overlay"><span>Advertising Material</span></div>
+            </div>
+          <div class="gallery-item">
+                <img src="img/QR.jpg" alt="7K Portfolio">
+                <div class="gallery-overlay"><span>QR Stand</span></div>
+            </div>
+          <div class="gallery-item">
+                <img src="img/DieCut.png" alt="7K Portfolio">
+                <div class="gallery-overlay"><span>Die Cut Sticker</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-creative">
+        <div class="about-wrapper">
+            <div class="about-left">
+                <h2 class="main-title">ABOUT <span class="cyan-text">7K</span></h2>
+                <div class="intro-content">
+                    <p>ကျွန်တော်တို့ <strong>7K</strong> သည် ၂၀၂၃ ခုနှစ် ဇူလိုင်လ ၇ ရက်နေ့မှ စတင်၍ ရန်ကုန်မြို့၊ အလုံမြို့နယ်တွင် တည်ထောင်ထားသော Printing Service Provider တစ်ခုဖြစ်ပြီး လူကြီးမင်းတို့ရဲ့ လုပ်ငန်းပုံရိပ် (Brand Image) ကို ပိုမိုတောက်ပလာစေရန် အကောင်းဆုံး ပုံနှိပ်ဝန်ဆောင်မှုများ ပေးနေသည့် နေရာတစ်ခု ဖြစ်ပါသည်။</p>
+                    <p>Customer များ၏ Idea များကို Modern Design၊ Premium Quality Printing တို့ ပေါင်းစပ်ကာ မြင်လိုက်သည်နှင့် မှတ်မိစေမည့် Creative Artwork များကို ဖန်တီးပေးလျက်ရှိပါသည်။</p>
+                </div>
+                <div class="motto-box">
+                    <h3>“လုပ်ငန်းရှင်တိုင်းအဆင်ပြေဖို့ အဖြေ 7K”</h3>
+                    <p>ဒီဇိုင်းလုပ်ငန်းမှစ၍ အရည်အသွေးမြင့် ပုံနှိပ်လက်ရာများအထိ တာဝန်ယူဆောင်ရွက်ပေးပါသည်။</p>
+                </div>
+            </div>
+            <div class="about-right">
+                <div class="status-item">
+                    <div class="status-icon"><i class="fas fa-eye"></i></div>
+                    <div class="status-text"><h4>VISION</h4><p>Creativity, Quality နဲ့ Innovation ကို ပေါင်းစပ်ပြီး Brand တိုင်းကို ပိုပြီး တန်ဖိုးရှိတဲ့ Identity အဖြစ် ဖန်တီးပေးရန်။</p></div>
+                </div>
+                <div class="status-item">
+                    <div class="status-icon"><i class="fas fa-bullseye"></i></div>
+                    <div class="status-text"><h4>MISSION</h4><p>Quality First: Detail တစ်ခုချင်းစီကို အလေးထားပြီး အရည်အသွေးမြင့် ပုံနှိပ်လက်ရာများကို တိတိကျကျ ဖန်တီးပေးရန်။</p></div>
+                </div>
+                <div class="status-item">
+                    <div class="status-icon"><i class="fas fa-gem"></i></div>
+                    <div class="status-text"><h4>CORE VALUES</h4><p>Professional ဖြစ်မှု၊ တိကျမှုနှင့် ယုံကြည်စိတ်ချရမှုကို အခြေခံပြီး အကောင်းဆုံး အရည်အသွေးကို အမြဲပေးအပ်ရန်။</p></div>
+                </div>
+                <p class="final-quote">"သင့် Brand Image ကို အတောက်ပဆုံး ဖြစ်စေဖို့ 7K Printing ရဲ့ Art နဲ့ အသက်သွင်းလိုက်ပါ။"</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2 class="section-title">Let's build your brand</h2>
+        <p class="contact-subtitle">Have a project in mind? Reach out to us today!</p>
+        
+        <div class="contact-container">
+            <div class="contact-info-block">
+                <div class="info-pill">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="info-pill-text">
+                        <label>Find Us</label>
+                        <span>No(123), Nguwah Street, Ahlone Township, Yangon.</span>
+                    </div>
+                </div>
+                <div class="info-pill">
+                    <i class="fas fa-phone-alt"></i>
+                    <div class="info-pill-text">
+                        <label>Call Us</label>
+                        <span>09-444 990 750</span>
+                    </div>
+                </div>
+                <div class="info-pill">
+                    <i class="fas fa-envelope"></i>
+                    <div class="info-pill-text">
+                        <label>Email Us</label>
+                        <span>sevenkprintingarea@gmail.com</span>
+                    </div>
+                </div>
+                <div class="info-pill">
+                    <i class="fas fa-clock"></i>
+                    <div class="info-pill-text">
+                        <label>Business Hours</label>
+                        <span>Mon - Sat: 9:00 AM - 5:30 PM (Sunday Closed)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-map-block">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3819.839659021966!2d96.1265842!3d16.7846175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c1eb485bf2df65%3A0x67399cf3cf1c3132!2sNgu%20Wah%20St%2C%20Yangon!5e0!3m2!1sen!2smm!4v1710000000000!5m2!1sen!2smm" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#">HOME</a>
+                <a href="#services">SERVICES</a>
+                <a href="#gallery">PORTFOLIO</a>
+                <a href="#about">ABOUT US</a>
+                <a href="#contact">CONTACT</a>
+            </div>
+
+            <div class="footer-socials">
+                <a href="https://www.facebook.com/share/1BCr2s2TCt/" target="_blank" class="fb" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="viber://contact?number=%2B959444990750" class="viber" title="Viber"><i class="fa-brands fa-viber"></i></a>
+                <a href="https://t.me/+959444990750" target="_blank" class="tele" title="Telegram"><i class="fa-brands fa-telegram"></i></a>
+            </div>
+
+            <div class="copyright">
+                &copy; 2026 7K Design & Printing Area | Developed by <strong>DATA</strong> | All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const burger = document.querySelector('.burger');
+        const nav = document.querySelector('.menu');
+        
+        burger.addEventListener('click', () => {
+            nav.classList.toggle('nav-active');
+            burger.classList.toggle('toggle'); // CSS class toggle အလုပ်လုပ်ရန် ပြင်ဆင်ထားပါသည်
+        });
+        
+        document.querySelectorAll('.menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('nav-active');
+                burger.classList.remove('toggle');
+            });
+        });
+    </script>
+</body>
+</html>
