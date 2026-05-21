@@ -85,63 +85,90 @@
         .print-col h4 { color: #fff; font-size: 0.9rem; margin-bottom: 10px; border-left: 2px solid var(--accent); padding-left: 10px; }
         .custom-note { font-size: 0.75rem; color: var(--accent); font-style: italic; margin-top: 15px; }
 
-        /* --- Gallery Section --- */
-        .gallery { 
-            padding: 80px 8%; 
-            background: rgba(255, 255, 255, 0.02); 
-        }
-        .gallery-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); 
-            gap: 25px; 
-            margin-top: 40px;
-        }
-        .gallery-item { 
-            height: 320px; 
-            border-radius: 15px; 
-            overflow: hidden; 
-            border: 1px solid var(--border); 
-            position: relative; 
-            cursor: pointer;
-            background: #111; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .gallery-item img { 
-            max-width: 100%; 
-            max-height: 100%; 
-            width: auto; 
-            height: auto; 
-            object-fit: contain; 
-            transition: transform 0.5s ease; 
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            transform: scale(1); 
-        }
-        .gallery-item:hover img { 
-            transform: scale(1.25); 
-        }
-        .gallery-overlay { 
-            position: absolute; 
-            bottom: 0; 
-            width: 100%; 
-            padding: 15px; 
-            background: rgba(0, 0, 0, 0.8); 
-            text-align: center;
-            opacity: 1; 
-            visibility: visible;
-            transition: 0.3s;
-            z-index: 1; 
-        }
-        .gallery-overlay span { 
-            color: var(--accent); 
-            font-weight: 700; 
-            text-transform: uppercase; 
-            font-size: 0.8rem; 
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5); 
-        }
+       /* --- Gallery Section --- */
+/* --- Gallery Section (Original Size Fit) --- */
+.gallery { 
+    padding: 80px 8%; 
+    background: rgba(255, 255, 255, 0.02); 
+}
 
+.gallery-grid { 
+    display: grid; 
+    /* အကွက်တွေကို ညီနေအောင် စီထားပေးပါတယ် */
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); 
+    gap: 25px; 
+    margin-top: 40px;
+}
+
+.gallery-item { 
+    height: 320px; /* အကွက်ရဲ့ အမြင့်ကို သတ်မှတ်ထားတာပါ */
+    border-radius: 15px; 
+    overflow: hidden; 
+    border: 1px solid var(--border); 
+    position: relative; 
+    cursor: pointer;
+    background: #111; /* ပုံမူရင်း size သေးရင် ဘေးမှာ အမည်းရောင်ပဲ ပေါ်နေဖို့ */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gallery-item img { 
+    /* မူရင်း Size အတိုင်း မပြဲအောင် ထိန်းပေးတဲ့ အပိုင်း */
+    max-width: 100%; 
+    max-height: 100%; 
+    width: auto; 
+    height: auto; 
+    object-fit: contain; /* ဒါက ပုံကို မဖြတ်ဘဲ မူရင်းအတိုင်း ကွက်တိဝင်စေပါတယ် */
+    transition: transform 0.5s ease; /* ပုံကြီးလာတဲ့ effect အတွက် */
+    
+    /* ပုံကြည်လင်စေရန် add လုပ်ပါသည် */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: scale(1); /* မူရင်း scale */
+}
+
+.gallery-item:hover img { 
+    transform: scale(1.25); /* Mouse တင်ရင် ပုံနည်းနည်းကြီးလာစေရန် */
+}
+
+.gallery-overlay { 
+    position: absolute; 
+    bottom: 0; 
+    width: 100%; 
+    padding: 15px; 
+    background: rgba(0, 0, 0, 0.8); /* စာသားနောက်ခံကို အမည်းရောင် ပွင့်လင်းမြင်သာ 70% ပေးထားခြင်း */
+    text-align: center;
+    
+    /* စာမျက်နှာပွင့်ကတည်းက တစ်ခါတည်း အမြဲတမ်း ပေါ်နေစေရန် */
+    opacity: 1; 
+    visibility: visible;
+    transition: 0.3s;
+    z-index: 1; /* ပုံကြီးလာရင် စာကို မကွယ်စေရန် add လုပ်ပါသည် */
+}
+
+/* Mouse တင်မှ စာသားပေါ်လာမည့် Hover အပိုင်းကို ဖျက်ထုတ်ထားပါသည် (အသေပေါ်နေမည်) */
+/* .gallery-item:hover .gallery-overlay {
+    opacity: 1;
+} */
+
+.gallery-overlay span { 
+    color: var(--accent); 
+    font-weight: 700; 
+    text-transform: uppercase; 
+    font-size: 0.8rem; 
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* စာသားပိုထင်ရှားစေရန် */
+}
+/* Mobile Setup */
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    .gallery-item {
+        height: 200px; /* ဖုန်းမှာ အမြင့်ကို နည်းနည်းလျှော့လိုက်ပါ */
+    }
+}
         /* --- About Section --- */
         .about-creative { padding: 100px 8%; background: #000; }
         .about-wrapper { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 60px; align-items: center; }
@@ -160,104 +187,182 @@
         .status-text p { color: #fff; font-size: 0.95rem; }
         .final-quote { font-style: italic; color: var(--accent); text-align: right; margin-top: 15px; font-size: 0.9rem; }
 
-        /* --- Contact Section Layout --- */
-        .contact { padding: 100px 8%; text-align: center; background: #050505; }
-        .contact-subtitle { color: #aaa; font-size: 1.1rem; margin-top: -30px; margin-bottom: 50px; }
-        .contact-container { display: flex; flex-wrap: wrap; gap: 40px; max-width: 1200px; margin: 0 auto; align-items: stretch; }
-        .contact-info-block { flex: 1; min-width: 320px; display: flex; flex-direction: column; gap: 20px; }
-        
-        .info-pill { 
-            background: var(--glass); border: 1px solid var(--border); padding: 22px 30px; 
-            border-radius: 20px; display: flex; align-items: center; gap: 20px; text-align: left; transition: 0.3s; 
-        }
-        .info-pill:hover { border-color: var(--accent); transform: translateY(-3px); background: rgba(0,255,255,0.02); }
-        .info-pill i { font-size: 1.4rem; color: var(--accent); width: 25px; text-align: center; }
-        .info-pill-text label { display: block; color: #666; font-size: 0.75rem; text-transform: uppercase; font-weight: 800; margin-bottom: 4px; }
-        .info-pill-text span { font-size: 1rem; color: #fff; font-weight: 500; }
+        /* --- Contact Section --- */
+        .contact { padding: 120px 8%; text-align: center; }
+        .info-pills-container { display: flex; flex-direction: column; gap: 15px; align-items: center; margin: 40px 0; }
+        .info-pill { background: var(--glass); border: 1px solid var(--border); padding: 20px 40px; border-radius: 100px; display: flex; align-items: center; gap: 25px; width: 100%; max-width: 700px; text-align: left; transition: 0.3s; }
+        .info-pill:hover { border-color: var(--accent); transform: translateY(-5px); background: rgba(0,255,255,0.05); }
+        .info-pill i { font-size: 1.5rem; color: var(--accent); width: 30px; text-align: center; }
+        .info-pill-text label { display: block; color: #666; font-size: 0.75rem; text-transform: uppercase; font-weight: 800; }
+        .info-pill-text span { font-size: 1.1rem; color: #fff; }
 
-        /* --- New Contact Form Block (Replacing Map Block) --- */
-        .contact-form-block { 
-            flex: 1; min-width: 320px; background: var(--glass); 
-            border: 1px solid var(--border); padding: 30px; border-radius: 25px; 
-            text-align: left; display: flex; flex-direction: column; gap: 20px;
-        }
-        .form-group { display: flex; flex-direction: column; gap: 8px; }
-        .form-group label { color: #aaa; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
-        .form-group input, .form-group textarea { 
-            background: rgba(255,255,255,0.02); border: 1px solid var(--border); 
-            padding: 12px 15px; border-radius: 10px; color: #fff; font-size: 0.95rem; transition: 0.3s;
-        }
-        .form-group input:focus, .form-group textarea:focus { 
-            border-color: var(--accent); outline: none; background: rgba(0,255,255,0.02); 
-        }
-        .btn-viber-send { 
-            background: #7360f2; color: #fff; border: none; padding: 14px; 
-            border-radius: 50px; font-weight: 700; cursor: pointer; transition: 0.3s; 
-            display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 1rem;
-        }
-        .btn-viber-send:hover { 
-            background: #604ee6; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(115, 96, 242, 0.4); 
-        }
+        .social-tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 800px; margin: 0 auto; }
+        .tile { padding: 25px; border-radius: 25px; text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 15px; font-weight: 600; color: #fff; background: var(--glass); border: 1px solid var(--border); transition: 0.4s; }
+        .tile i { font-size: 2.2rem; }
+        .tile.fb:hover { background: #1877F2; border-color: #1877F2; transform: translateY(-10px); }
+        .tile.viber:hover { background: #7360f2; border-color: #7360f2; transform: translateY(-10px); }
+        .tile.tele:hover { background: #0088cc; border-color: #0088cc; transform: translateY(-10px); }
 
-        /* --- Footer Section with Social Icons --- */
-        footer { 
-            background: #000000; padding: 60px 8% 30px; 
-            border-top: 1px solid var(--border); text-align: center; 
-        }
-        .footer-content { 
-            display: flex; flex-direction: column; align-items: center; gap: 25px; max-width: 1200px; margin: 0 auto; 
-        }
-        .footer-socials { display: flex; gap: 15px; }
-        .footer-socials a { 
-            width: 45px; height: 45px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); 
-            border-radius: 50%; display: flex; align-items: center; justify-content: center; 
-            color: #fff; text-decoration: none; font-size: 1.2rem; transition: 0.3s; 
-        }
-        .footer-socials a.fb:hover { background: #1877F2; border-color: #1877F2; transform: translateY(-5px); box-shadow: 0 5px 15px rgba(24, 119, 242, 0.4); }
-        .footer-socials a.viber:hover { background: #7360f2; border-color: #7360f2; transform: translateY(-5px); box-shadow: 0 5px 15px rgba(115, 96, 242, 0.4); }
-        .footer-socials a.tele:hover { background: #0088cc; border-color: #0088cc; transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0, 136, 204, 0.4); }
-        
-        .footer-links { display: flex; gap: 25px; margin-top: 10px; }
-        .footer-links a { color: #aaa; text-decoration: none; font-size: 0.85rem; transition: 0.3s; }
-        .footer-links a:hover { color: var(--accent); }
-        
-        .copyright { color: #555; font-size: 0.8rem; margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 25px; width: 100%; }
+        footer { padding: 40px; color: #666; text-align: center; border-top: 1px solid var(--border); }
 
-        /* Burger Menu Elements */
+        /* Burger Menu */
         .burger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
         .burger div { width: 25px; height: 3px; background: var(--accent); transition: 0.3s; }
 
-        /* Animation for Burger Menu */
-        .toggle .line1 { transform: rotate(-45deg) translate(-5px, 6px); }
-        .toggle .line2 { opacity: 0; }
-        .toggle .line3 { transform: rotate(45deg) translate(-5px, -6px); }
+        /* Media Queries အပိုင်းကို ဒီလိုလေး အစားထိုးကြည့်ပါ */
+@media (max-width: 768px) {
+    .nav {
+        padding: 15px 5%;
+    }
+    
+    .burger { display: flex; }
+    
+    .menu { 
+        position: fixed; 
+        right: 0; 
+        top: 70px; 
+        height: 100vh; 
+        width: 80%; /* နည်းနည်း ပိုကျယ်လိုက်ရင် ပိုကြည့်ကောင်းပါတယ် */
+        background: rgba(5,5,5,0.98); 
+        backdrop-filter: blur(20px); 
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+        transform: translateX(100%); 
+        transition: 0.5s ease-in-out; 
+        padding-top: 50px; 
+        z-index: 999; 
+    }
 
-        /* --- Media Queries --- */
-        @media (max-width: 768px) {
-            .nav { padding: 15px 5%; }
-            .burger { display: flex; }
-            .menu { 
-                position: fixed; right: 0; top: 70px; height: 100vh; width: 75%; 
-                background: rgba(5,5,5,0.98); backdrop-filter: blur(20px); 
-                display: flex; flex-direction: column; align-items: center; 
-                transform: translateX(100%); transition: 0.5s ease-in-out; 
-                padding-top: 50px; z-index: 999; 
-            }
-            .nav-active { transform: translateX(0); }
-            .menu a { margin: 15px 0; font-size: 1.2rem; }
+    .nav-active { transform: translateX(0); }
+    .menu a { margin: 15px 0; font-size: 1.2rem; }
 
-            .services, .gallery, .about-creative, .contact { padding: 60px 5%; }
-            .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-            .gallery-item { height: 200px; }
-            .hero-content h2 { font-size: 2.5rem; }
-            .about-left, .about-right { min-width: 100%; }
-            .main-title { font-size: 2.2rem; }
+    /* Layout Sections */
+    .services,.gallery-grid, .about-creative, .contact {
+        padding: 60px 5%; /* ဘေးကွာဟချက် လျှော့လိုက်တာပါ */
+    }
 
-            .contact-container { flex-direction: column; }
-            .info-pill { padding: 18px 20px; }
-            .contact-form-block { padding: 20px; }
-            .footer-links { flex-wrap: wrap; justify-content: center; gap: 15px; }
-        }
+    .hero-content h2 {
+        font-size: 2.8rem; /* Mobile မှာ အရမ်းကြီးမနေအောင် */
+    }
+
+    .about-left, .about-right {
+        min-width: 100%; /* ဖုန်းမှာ တစ်ခုစီ အပြည့်ပြဖို့ */
+    }
+
+    .main-title {
+        font-size: 2rem;
+    }
+
+    .info-pill {
+        padding: 15px 20px;
+        flex-direction: column; /* ဖုန်းမှာ Icon နဲ့ စာကို အပေါ်အောက် ထားရင် ပိုဆံ့ပါတယ် */
+        text-align: center;
+        border-radius: 20px;
+    }
+
+    .social-tiles {
+        grid-template-columns: 1fr; /* တစ်တန်းကို တစ်ခုစီပြမယ် */
+    }
+    
+    .print-sub-grid {
+        grid-template-columns: 1fr;
+    }
+}
+        /* Footer Styles */
+.site-footer {
+  background-color: #080808; /* Contact ထက် ပိုမှောင်တဲ့ နောက်ခံ */
+  color: #a0a0a0;
+  padding: 60px 0 20px 0;
+  font-family: sans-serif;
+  border-top: 1px solid #111;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 20px;
+  justify-content: space-between;
+}
+
+.footer-col {
+  flex: 1;
+  min-width: 280px; /* Column ၃ ခုစာ ပိုကျယ်ကျယ်ပြန့်ပြန့်ဖြစ်အောင် ညှိထားပါတယ် */
+  margin-bottom: 30px;
+}
+
+.footer-col h3 {
+  color: #ffffff;
+  font-size: 18px;
+  margin-bottom: 20px;
+  position: relative;
+  font-weight: 600;
+}
+
+/* 7K Logo Style */
+.footer-logo {
+  color: #00f2fe !important;
+  font-size: 22px !important;
+}
+.footer-logo span {
+  color: #ffffff;
+}
+
+.footer-about {
+  line-height: 1.6;
+  font-size: 14px;
+  padding-right: 40px; /* စာသားတွေ ညာဘက်နဲ့ အရမ်းမကပ်အောင် */
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+  color: #a0a0a0;
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+/* Hover Glow Effect */
+.footer-col ul li a:hover {
+  color: #00f2fe;
+  text-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
+  padding-left: 5px;
+}
+
+/* Bottom Copyright Bar */
+.footer-bottom {
+  text-align: center;
+  padding-top: 25px;
+  margin-top: 40px;
+  border-top: 1px solid #1a1a1a;
+}
+
+.footer-bottom p {
+  font-size: 12px;
+  color: #666666;
+}
+
+/* Responsive (ဖုန်း screen များအတွက်) */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+  }
+  .footer-col {
+    width: 100%;
+    margin-bottom: 25px;
+  }
+}
     </style>
 </head>
 <body>
@@ -271,11 +376,7 @@
             <a href="#about">ABOUT</a> 
             <a href="#contact">CONTACT</a>
         </nav>
-        <div class="burger">
-            <div class="line1"></div>
-            <div class="line2"></div>
-            <div class="line3"></div>
-        </div>
+        <div class="burger"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div>
     </header>
 
     <section class="hero">
@@ -375,16 +476,19 @@
         </div>
     </section>
 
-    <section id="gallery" class="gallery">
+    <!-- GALLERY SECTION -->
+
+<section id="gallery" class="gallery">
         <h2 class="section-title">Our Creations</h2>
         <div class="gallery-grid">
             <div class="gallery-item">
                 <img src="img/Logo1.png" alt="7K Portfolio">
                 <div class="gallery-overlay"><span>Logo</span></div>
             </div>
+           
             <div class="gallery-item">
                 <img src="img/Cupon.png" alt="7K Portfolio">
-                <div class="gallery-overlay"><span>Cuopon</span></div>
+                <div class="gallery-overlay"><span>Coupon</span></div>
             </div>
             <div class="gallery-item">
                 <img src="img/ID.png" alt="7K Portfolio">
@@ -394,6 +498,7 @@
                 <img src="img/Businesscard.jpg" alt="7K Portfolio">
                 <div class="gallery-overlay"><span>Business Card</span></div>
             </div>
+            
             <div class="gallery-item">
                 <img src="img/ProfileBook.png" alt="7K Portfolio">
                 <div class="gallery-overlay"><span>Profile Book</span></div>
@@ -406,10 +511,12 @@
                 <img src="img/Vinyl&XStand.png" alt="7K Portfolio">
                 <div class="gallery-overlay"><span>Vinyl & X Stand</span></div>
             </div>
+           
             <div class="gallery-item">
                 <img src="img/Newspaper.png" alt="7K Portfolio">
                 <div class="gallery-overlay"><span>Newspaper</span></div>
             </div>
+            
             <div class="gallery-item">
                 <img src="img/Letterhead.png" alt="7K Portfolio">
                 <div class="gallery-overlay"><span>Letterhead</span></div>
@@ -418,6 +525,7 @@
                 <img src="img/NoteBook.jpg" alt="7K Portfolio">
                 <div class="gallery-overlay"><span>Note Book</span></div>
             </div>
+                     
             <div class="gallery-item">
                 <img src="img/Menu_2.jpg" alt="7K Portfolio">
                 <div class="gallery-overlay"><span>Menu</span></div>
@@ -451,7 +559,7 @@
                 <h2 class="main-title">ABOUT <span class="cyan-text">7K</span></h2>
                 <div class="intro-content">
                     <p>ကျွန်တော်တို့ <strong>7K</strong> သည် ၂၀၂၃ ခုနှစ် ဇူလိုင်လ ၇ ရက်နေ့မှ စတင်၍ ရန်ကုန်မြို့၊ အလုံမြို့နယ်တွင် တည်ထောင်ထားသော Printing Service Provider တစ်ခုဖြစ်ပြီး လူကြီးမင်းတို့ရဲ့ လုပ်ငန်းပုံရိပ် (Brand Image) ကို ပိုမိုတောက်ပလာစေရန် အကောင်းဆုံး ပုံနှိပ်ဝန်ဆောင်မှုများ ပေးနေသည့် နေရာတစ်ခု ဖြစ်ပါသည်။</p>
-                    <p>Customer များ၏ Idea များကို Modern Design၊ Premium Quality Printing တို့ ပေါင်းစပ်ကာ မြင်လိုက်သည်နှင့် မှတ်မိစေမည့် Creative Artwork များကို الفန်တီးပေးလျက်ရှိပါသည်။</p>
+                    <p>Customer များ၏ Idea များကို Modern Design၊ Premium Quality Printing တို့ ပေါင်းစပ်ကာ မြင်လိုက်သည်နှင့် မှတ်မိစေမည့် Creative Artwork များကို ဖန်တီးပေးလျက်ရှိပါသည်။</p>
                 </div>
                 <div class="motto-box">
                     <h3>“လုပ်ငန်းရှင်တိုင်းအဆင်ပြေဖို့ အဖြေ 7K”</h3>
@@ -478,121 +586,66 @@
 
     <section id="contact" class="contact">
         <h2 class="section-title">Let's build your brand</h2>
-        <p class="contact-subtitle">Have a project in mind? Reach out to us today!</p>
-        
-        <div class="contact-container">
-            <div class="contact-info-block">
-                <div class="info-pill">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div class="info-pill-text">
-                        <label>Find Us</label>
-                        <span>No(123), Nguwah Street, Ahlone Township, Yangon.</span>
-                    </div>
-                </div>
-                <div class="info-pill">
-                    <i class="fas fa-phone-alt"></i>
-                    <div class="info-pill-text">
-                        <label>Call Us</label>
-                        <span>09-444 990 750</span>
-                    </div>
-                </div>
-                <div class="info-pill">
-                    <i class="fas fa-envelope"></i>
-                    <div class="info-pill-text">
-                        <label>Email Us</label>
-                        <span>sevenkprintingarea@gmail.com</span>
-                    </div>
-                </div>
-                <div class="info-pill">
-                    <i class="fas fa-clock"></i>
-                    <div class="info-pill-text">
-                        <label>Business Hours</label>
-                        <span>Mon - Sat: 9:00 AM - 5:30 PM (Sunday Closed)</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="contact-form-block">
-                <div class="form-group">
-                    <label for="userName">သင့်နာမည် (Name)</label>
-                    <input type="text" id="userName" placeholder="မောင်မောင်">
-                </div>
-                <div class="form-group">
-                    <label for="userPhone">ဖုန်းနံပါတ် (Phone)</label>
-                    <input type="tel" id="userPhone" placeholder="09-xxxxxxxxx">
-                </div>
-                <div class="form-group">
-                    <label for="userMessage">မေးမြန်းလိုသည့် အကြောင်းအရာ (Message)</label>
-                    <textarea id="userMessage" rows="4" placeholder="လုပ်ငန်းသုံး ဗီနိုင်းနဲ့ စတစ်ကာ အပ်ချင်လို့ပါ..."></textarea>
-                </div>
-                <button class="btn-viber-send" onclick="sendToViber()">
-                    <i class="fa-brands fa-viber"></i> Send via Viber
-                </button>
-            </div>
+        <div class="info-pills-container">
+            <div class="info-pill"><i class="fas fa-map-marker-alt"></i><div class="info-pill-text"><label>Find Us</label><span>No(123), Nguwah Street, Ahlone Township, Yangon.</span></div></div>
+            <div class="info-pill"><i class="fas fa-phone-alt"></i><div class="info-pill-text"><label>Call Us</label><span>09-444 990 750</span></div></div>
+            <div class="info-pill"><i class="fas fa-envelope"></i><div class="info-pill-text"><label>Email Us</label><span>sevenkprintingarea@gmail.com</span></div></div>
+        </div>
+        <div class="social-tiles">
+            <a href="https://www.facebook.com/share/1BCr2s2TCt/" target="_blank" class="tile fb"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
+            <a href="viber://contact?number=%2B959444990750" class="tile viber"><i class="fa-brands fa-viber"></i> Viber</a>
+            <a href="https://t.me/+959444990750" target="_blank" class="tile tele"><i class="fa-brands fa-telegram"></i> Telegram</a>
         </div>
     </section>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-links">
-                <a href="#">HOME</a>
-                <a href="#services">SERVICES</a>
-                <a href="#gallery">PORTFOLIO</a>
-                <a href="#about">ABOUT US</a>
-                <a href="#contact">CONTACT</a>
-            </div>
+   <footer class="site-footer">
+  <div class="footer-container">
+    
+    <div class="footer-col">
+      <h3 class="footer-logo">7K <span>Design & Printing</span></h3>
+      <p class="footer-about">Beyond The Print: Premium printing and expert graphic design services tailored for your business success.</p>
+    </div>
 
-            <div class="footer-socials">
-                <a href="https://www.facebook.com/share/1BCr2s2TCt/" target="_blank" class="fb" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="viber://contact?number=%2B959444990750" class="viber" title="Viber"><i class="fa-brands fa-viber"></i></a>
-                <a href="https://t.me/+959444990750" target="_blank" class="tele" title="Telegram"><i class="fa-brands fa-telegram"></i></a>
-            </div>
+    <div class="footer-col">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Our Services</a></li>
+        <li><a href="#gallery">Portfolio</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
 
-            <div class="copyright">
-                © 2026 7K Design & Printing Area | Developed by <strong>DATA</strong> | All Rights Reserved.
-            </div>
-        </div>
-    </footer>
+    <div class="footer-col">
+      <h3>Our Services</h3>
+      <ul>
+        <li><a href="#services">Graphic Design</a></li>
+        <li><a href="#services">Print Service</a></li>
+        <li><a href="#services">Screen Printing</a></li>
+        <li><a href="#services">Sublimation Printing</a></li>
+      </ul>
+    </div>
 
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 7K Design & Printing Area | Developed by DATA | All Rights Reserved.</p>
+  </div>
+</footer>
     <script>
         const burger = document.querySelector('.burger');
         const nav = document.querySelector('.menu');
-        
         burger.addEventListener('click', () => {
             nav.classList.toggle('nav-active');
             burger.classList.toggle('toggle');
         });
-        
         document.querySelectorAll('.menu a').forEach(link => {
             link.addEventListener('click', () => {
                 nav.classList.remove('nav-active');
                 burger.classList.remove('toggle');
             });
         });
-
-        // Viber သို့ Message ပို့မည့် Function
-        function sendToViber() {
-            const name = document.getElementById('userName').value.trim();
-            const phone = document.getElementById('userPhone').value.trim();
-            const msg = document.getElementById('userMessage').value.trim();
-
-            if (!name || !phone || !msg) {
-                alert("ကျေးဇူးပြု၍ အချက်အလက်အားလုံး ပြည့်စုံစွာ ဖြည့်သွင်းပေးပါခင်ဗျာ။");
-                return;
-            }
-
-            // Viber သို့ ပို့မည့် စာသားပုံစံ ဖန်တီးခြင်း
-            const textMessage = `ဟဲလို 7K Printing၊ ဖောက်သည်အသစ်ထံမှ မေးမြန်းလွှာ ရောက်ရှိလာပါသည်။\n\n👤 အမည်: ${name}\n📞 ဖုန်းနံပါတ်: ${phone}\n💬 မေးမြန်းချက်: ${msg}`;
-
-            // စာသားများကို URL Format သို့ ပြောင်းလဲခြင်း
-            const encodedMessage = encodeURIComponent(textMessage);
-
-            // 7K ရဲ့ Viber Contact နံပါတ် (+959444990750) သို့ ချိတ်ဆက်ခြင်း
-            const viberUrl = `viber://contact?number=%2B959444990750&text=${encodedMessage}`;
-
-            // Viber App သို့ လမ်းကြောင်းလွှဲပေးခြင်း
-            window.location.href = viberUrl;
-        }
     </script>
 </body>
 </html>
