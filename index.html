@@ -186,7 +186,135 @@
         .status-text h4 { color: var(--accent); font-size: 1.2rem; margin-bottom: 5px; }
         .status-text p { color: #fff; font-size: 0.95rem; }
         .final-quote { font-style: italic; color: var(--accent); text-align: right; margin-top: 15px; font-size: 0.9rem; }
+/* Blog Section Styles */
+.blog-section {
+  background-color: #0b0b0b; /* မူလ website ရဲ့ background အမည်းရောင် */
+  padding: 80px 0;
+  font-family: sans-serif;
+}
 
+.blog-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Section Title (Our Services title ပုံစံအတိုင်း) */
+.section-title {
+  color: #00f2fe;
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 50px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+/* Blog Grid Setup */
+.blog-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+/* Blog Card Base */
+.blog-card {
+  background-color: #121212; /* ကတ်နောက်ခံကို အမည်းနုရောင် သုံးထားပါတယ် */
+  border-radius: 12px;
+  overflow: hidden;
+  flex: 1;
+  min-width: 300px;
+  max-width: 360px;
+  border: 1px solid #1a1a1a;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Placeholder Image နေရာ (နောက်မှ img tag နဲ့ အစားထိုးနိုင်ပါတယ်) */
+.blog-img-box {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.blog-placeholder-img {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 18px;
+  letter-spacing: 1px;
+  opacity: 0.8;
+}
+
+/* Blog Content Padding */
+.blog-content {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.blog-date {
+  color: #666666;
+  font-size: 12px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.blog-content h3 {
+  color: #ffffff;
+  font-size: 18px;
+  margin-bottom: 15px;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.blog-content p {
+  color: #a0a0a0;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex-grow: 1; /* စာသားတိုရှည်မတူရင်လည်း ကတ်အမြင့်တူအောင် ထိန်းပေးပါတယ် */
+}
+
+/* Read More Button */
+.read-more-btn {
+  color: #00f2fe;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  align-self: flex-start;
+}
+
+/* 🔥 Card Hover Glow Effect */
+.blog-card:hover {
+  transform: translateY(-5px); /* ကတ်လေး အပေါ်နည်းနည်း ကြွတက်လာမယ့် effect */
+  border-color: #00f2fe; /* Border လိုင်းက Cyan ဖြစ်သွားမယ် */
+  box-shadow: 0 5px 20px rgba(0, 242, 254, 0.15); /* Cyan Glow မီးလိုင်းထွက်လာမယ် */
+}
+
+.blog-card:hover .read-more-btn {
+  color: #ffffff; /* မောက်စ်တင်ရင် ခလုတ်စာသား အဖြူပြောင်းမယ် */
+}
+
+/* Responsive ဖုန်းအတွက် */
+@media (max-width: 768px) {
+  .blog-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  .blog-card {
+    width: 100%;
+    max-width: 100%;
+  }
+}
         /* --- Contact Section --- */
         .contact { padding: 120px 8%; text-align: center; }
         .info-pills-container { display: flex; flex-direction: column; gap: 15px; align-items: center; margin: 40px 0; }
@@ -583,7 +711,58 @@
             </div>
         </div>
     </section>
+<section id="blog" class="blog-section">
+  <div class="blog-container">
+    
+    <h2 class="section-title">LATEST INSIGHTS</h2>
+    
+    <div class="blog-grid">
+      
+      <div class="blog-card">
+        <div class="blog-img-box">
+          <div class="blog-placeholder-img" style="background: linear-gradient(135deg, #0d1b2a, #00f2fe);">
+            <span>CMYK vs RGB</span>
+          </div>
+        </div>
+        <div class="blog-content">
+          <span class="blog-date">May 20, 2026</span>
+          <h3>CMYK နဲ့ RGB ကာလာစနစ် ဘာကွာလဲ?</h3>
+          <p>ဒီဇိုင်းဆွဲချိန်မှာ မြင်ရတဲ့အရောင်နဲ့ Print ထွက်လာတဲ့အရောင် ဘာလို့ကွဲလွဲရတာလဲဆိုတာကို ရှင်းပြပေးထားပါတယ်။</p>
+          <a href="#" class="read-more-btn">Read More →</a>
+        </div>
+      </div>
 
+      <div class="blog-card">
+        <div class="blog-img-box">
+          <div class="blog-placeholder-img" style="background: linear-gradient(135deg, #0d1b2a, #4facfe);">
+            <span>BUSINESS CARD</span>
+          </div>
+        </div>
+        <div class="blog-content">
+          <span class="blog-date">May 15, 2026</span>
+          <h3>လိပ်စာကတ်ဒီဇိုင်းဆွဲရင် သတိထားရမယ့်အချက်များ</h3>
+          <p>သင့်လုပ်ငန်းအတွက် စမတ်ကျပြီး လူကြိုက်များမယ့် Business Card တစ်ခုဖြစ်စေဖို့ သိထားရမယ့် Standard Size နဲ့ Layout နည်းလမ်းများ။</p>
+          <a href="#" class="read-more-btn">Read More →</a>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-img-box">
+          <div class="blog-placeholder-img" style="background: linear-gradient(135deg, #0d1b2a, #00b4db);">
+            <span>T-SHIRT PRINTING</span>
+          </div>
+        </div>
+        <div class="blog-content">
+          <span class="blog-date">May 10, 2026</span>
+          <h3>T-Shirt ပေါ်မှာ ပုံနှိပ်ဖို့ ဘယ်လိုစနစ်ကို ရွေးမလဲ?</h3>
+          <p>Screen Printing ရော Sublimation ရောမှာ ရှိတဲ့ အားသာချက်၊ အားနည်းချက်တွေနဲ့ မိမိအထည်နဲ့ ကိုက်ညီမယ့် ပုံနှိပ်နည်းလမ်းအကြောင်း။</p>
+          <a href="#" class="read-more-btn">Read More →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
     <section id="contact" class="contact">
         <h2 class="section-title">Let's build your brand</h2>
         <div class="info-pills-container">
